@@ -48,3 +48,27 @@ console.log(prod1.getDetails());
 // Task 2 - End
 
 console.log(`----------Task 2 - End----------`)
+
+// Task 3 - Creating Inventory Class
+class Inventory {
+    constructor() {
+        this.products = [];
+    }
+
+    addProduct(product) {
+        this.products.push(product);
+    }
+
+    listProducts() {
+        this.products.forEach(product => console.log(product.getDetails()));
+    }
+}
+// Test
+const inventory = new Inventory();
+inventory.addProduct(prod1);
+inventory.listProducts();
+// Task 3 - End
+
+console.log(`----------Task 3 - End----------`)
+
+
