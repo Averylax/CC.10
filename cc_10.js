@@ -53,6 +53,7 @@ console.log(`----------Task 2 - End----------`)
 class Inventory {
     constructor() {
         this.products = [];
+        this.orders = []; // Task 4
     }
 
     addProduct(product) {
@@ -62,7 +63,22 @@ class Inventory {
     listProducts() {
         this.products.forEach(product => console.log(product.getDetails()));
     }
+
+    placeOrder(orderId, product, quantity) { // Task 4
+        if (product.stock >= quantity) {
+            const newOrder = new Order(orderId, product, quantity);
+            this.orders.push(newOrder);
+            console.log(`Order has been placed successfully`);
+        } else {
+            console.log(`Insuffecient Stock for this order`);
+        }
+    }
+
+    listOrders() { // Task 4
+        this.orders.forEach(order => console.log(order.getOrderDetails()));
+    }
 }
+
 // Test
 const inventory = new Inventory();
 inventory.addProduct(prod1);
@@ -71,4 +87,11 @@ inventory.listProducts();
 
 console.log(`----------Task 3 - End----------`)
 
+// Task 4 - Implementing Order Management
+inventory.placeOrder(601, prod1, 2);
+inventory.listOrders();
+console.log(prod1.getDetails());
+// Task 4 - End
+
+console.log(`----------Task 4 - End----------`)
 
