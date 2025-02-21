@@ -77,6 +77,16 @@ class Inventory {
     listOrders() { // Task 4
         this.orders.forEach(order => console.log(order.getOrderDetails()));
     }
+
+    restockProduct(productId, quantity) { // Task 5
+        const product = this.products.find(p => p.id === productId);
+        if (product) {
+            product.stock +=quantity;
+            console.log(`Product ID: ${productId} has been restocked to ${product.stock}`);
+        } else {
+            console.log(`Product not found`);
+        }
+    }
 }
 
 // Test
@@ -95,3 +105,9 @@ console.log(prod1.getDetails());
 
 console.log(`----------Task 4 - End----------`)
 
+// Task 5 - Implementing Product Restocking
+ inventory.restockProduct(101, 5);
+ console.log(prod1.getDetails())
+// Task 5 - End
+
+console.log(`----------Task 5 - End----------`)
